@@ -8,8 +8,8 @@ import javax.inject.Named;
 @SessionScoped
 public class UserHandler implements Serializable {
     
-    boolean isLoggedIn = false;
-    String username = "";
+    private boolean isLoggedIn = false;
+    private String username = "";
     
     public boolean login(String username, String password) {
         
