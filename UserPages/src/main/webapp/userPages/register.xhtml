@@ -15,31 +15,30 @@
             </ui:define>
             <ui:define name="content">
                 <h:form>
-                    <p:panel id="panel" header="Registrera">
-                        <p:messages id="msgs" />
-                        <h:panelGrid columns="3" cellpadding="5">
-                            <p:outputLabel for="username" value="Username:" />
-                            <p:inputText id="username" value="#{loginPageBean.selectedUser.userName}" required="true" label="Username">
-                                <f:validateLength minimum="2" />
-                                <p:ajax update="msgUsername" event="keyup" />
-                            </p:inputText>
-                            <p:message for="username" id="msgUsername" display="icon" />
+                    <p:messages id="msgs" showDetail="true" autoUpdate="true" />
 
-                            <p:outputLabel for="password" value="Password:" />
-                            <p:password id="password" value="#{loginPageBean.selectedUser.password}" match="password2" label="Password" required="true">
-                                <f:validateLength minimum="2" />
-                                <p:ajax update="msgPassword" event="keyup" />
-                            </p:password>
+                    <h:panelGrid columns="2" id="register" cellpadding="5">    
+                        <h:outputLabel for="username" value="Username: *"/>
+                        <p:inputText id="username" value="#{loginPageBean.selectedUser.userName}" required="true" label="Username" >
+                            <f:validateLength minimum="2" />
+                            <p:ajax update="msgUsername" event="keyup" />
+                        </p:inputText>
                             
-                            <p:outputLabel for="password2" value="Repeat Password:" />
-                            <p:password id="password2" value="#{loginPageBean.selectedUser.password}" label="Repeat Password" required="true"/>
-                            <p:message for="password" id="msgPassword" display="icon" />
+                        <h:outputLabel for="pwd1" value="Password: *" />
+                        <p:password id="pwd1" value="#{register.password}" match="pwd2" label="Password 1" required="true" >
+                            <f:validateLength minimum="2" />
+                            <p:ajax update="msgPassword" event="keyup" />
+                        </p:password>
 
-                        </h:panelGrid>
+                        <h:outputLabel for="pwd2" value="Password: *" />
+                        <p:password id="pwd2" value="#{register.password}" label="Password 2" required="true" >
+                            <f:validateLength minimum="2" />
+                            <p:ajax update="msgPassword" event="keyup" />
+                        </p:password>
+                    </h:panelGrid>
 
-                        <p:commandButton value="Registrera" update="panel" action="#{loginPageBean.register}" icon="ui-icon-check" />
-                    </p:panel>
-                </h:form>             
+                    <p:commandButton update="register" value="Register" />
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>
