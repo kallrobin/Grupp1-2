@@ -18,7 +18,7 @@ private UserHandler userHandler;
     
     //TODO: Error handling of failed register
     //TODO: Redirecting users on success
-    public String register() {
+    public String doRegister() {
         User user = new User(username,password);
         userHandler.doRegister(user);
         
