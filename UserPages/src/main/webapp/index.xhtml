@@ -11,32 +11,12 @@
     <h:body>
         <ui:composition template="/templates/defaultTemplate.xhtml">
             <ui:define name="header">                
-                <h3></h3>
+                <h3>Välkommen!</h3>
             </ui:define>
             <ui:define name="content">
-                <h:form>
-                    <p:panel id="panel" header="Login">
-                        <p:messages id="msgs" />
-                        <h:panelGrid columns="3" cellpadding="5">
-                            <p:outputLabel for="username" value="Username:" />
-                            <p:inputText id="username" value="#{loginPageBean.selectedUser.userName}" required="true" label="Username">
-                                <f:validateLength minimum="2" />
-                                <p:ajax update="msgUsername" event="keyup" />
-                            </p:inputText>
-                            <p:message for="username" id="msgUsername" display="icon" />
-
-                            <p:outputLabel for="password" value="Password:" />
-                            <p:password id="password" value="#{loginPageBean.selectedUser.password}" label="Password" required="true">
-                                <f:validateLength minimum="2" />
-                                <p:ajax update="msgPassword" event="keyup" />
-                            </p:password>
-                            <p:message for="password" id="msgPassword" display="icon" />
-
-                        </h:panelGrid>
-
-                        <p:commandButton value="Login" update="panel" action="#{loginPageBean.doLogin}" icon="ui-icon-check" />
-                    </p:panel>
-                </h:form>             
+                <p:panel header="">
+                <p>Välkommen till vår fina sida! Här kan du registrera dig och sånt.</p> 
+                </p:panel>    
             </ui:define>
         </ui:composition>
     </h:body>
