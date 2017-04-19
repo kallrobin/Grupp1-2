@@ -8,11 +8,34 @@ import javax.inject.Named;
 @SessionScoped
 public class UserHandler implements Serializable {
     
+    boolean isLoggedIn = false;
+    String username = "";
+    
+    public boolean login(String username, String password) {
+        
+        boolean check = FakeDB.doLogin(username, password);
+        if (check==true)
+        {
+            this.username=username;
+            isLoggedIn = true;
+        }
+        
+        return (check);
+        
+    }
+    
+    public void logout() {
+        username="";
+        isLoggedIn=false;
+    }
+    
+    
     public void doRegister(User selectedUser){
         //TODO; Lägga till en varning om id redan finns
         if(!FakeDB.isUserExists(selectedUser)){
           FakeDB.addUser(selectedUser);
         }
+        //TODO: Error handling
     }
     
 
