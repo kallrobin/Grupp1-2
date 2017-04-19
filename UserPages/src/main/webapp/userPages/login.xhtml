@@ -14,12 +14,12 @@
                 <h3>Välkommen till inloggningssidan</h3>
             </ui:define>
             <ui:define name="content">
+                <h:form id="login">
+                    <p:panel id="panel" header="Login">
 
-                <p:panel id="panel" header="Login">
+                        <p:messages id="msgs" />
+                        <h:panelGrid columns="3" cellpadding="5">
 
-                    <p:messages id="msgs" />
-                    <h:panelGrid columns="3" cellpadding="5">
-                        <h:form id="login">
                             <p:outputLabel for="username" value="Username:" />
                             <p:inputText id="username" value="#{loginPageBean.selectedUser.userName}" required="true" label="Username">
                                 <f:validateLength minimum="2" />
@@ -34,13 +34,13 @@
                             </p:password>
                             <p:message for="password" id="msgPassword" display="icon" />
                             <p:commandButton value="Login" update="panel" action="#{loginPageBean.doLogin}" icon="ui-icon-check" />
-                        </h:form>  
-                    </h:panelGrid>
 
-                    
+                        </h:panelGrid>
 
-                </p:panel>
 
+
+                    </p:panel>
+                </h:form>  
             </ui:define>
         </ui:composition>
     </h:body>
