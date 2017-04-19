@@ -13,7 +13,7 @@ public class Login {
     @Inject
     private UserHandler userHandler;
     
-    public void login(String username, String password) {
+    public void doLogin(String username, String password) {
         //TODO: Redirecting users on success
         userHandler.login(username, password);
     }
