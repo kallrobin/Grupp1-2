@@ -17,8 +17,8 @@ public class User {
         return username;
     }
 
-    public String getPassword() {
-        return password;
+    public boolean isPasswordCorrect(String inputPassword) {
+            return (password.equals(inputPassword));
     }
 
     public UUID getId() {

@@ -23,6 +23,10 @@ public class FakeDB {
         User dbUser = FakeDB.getUser(selectedUser.getUsername());
         return (dbUser != null);
     }
+      public static boolean isUserExists(String username){
+        User dbUser = FakeDB.getUser(username);
+        return (dbUser != null);
+    }
      
      
      public static void addUser(User user){
@@ -35,6 +39,18 @@ public class FakeDB {
      
      public static void persistFakeDB(FakeDB fakeDB){
          FakeDB.fakeDB = fakeDB;
+     }
+     
+     public static boolean doLogin(String username, String password)
+     {
+         if (isUserExists(username)) 
+         {
+             if (getUser(username).isPasswordCorrect(password))
+             {
+                 return true;
+             }
+         }
+         return false;
      }
     
 }
