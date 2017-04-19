@@ -6,7 +6,7 @@ import java.util.Map;
 public class FakeDB {
      private static Map<String, User> users = new HashMap<>();
      
-     private static FakeDB fakeDB;
+     private static FakeDB fakeDB = new FakeDB();
      
      private FakeDB(){
         addUser(new User("Carl", "Secret"));
@@ -15,8 +15,9 @@ public class FakeDB {
      }
      
      private static User getUser(String username){
+         
         User user = users.get(username);
-        return user;    
+        return user; 
      }
      
      public static boolean isUserExists(User selectedUser){
@@ -25,6 +26,9 @@ public class FakeDB {
     }
       public static boolean isUserExists(String username){
         User dbUser = FakeDB.getUser(username);
+        
+        System.out.println(users);
+        
         return (dbUser != null);
     }
      

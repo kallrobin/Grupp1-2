@@ -21,19 +21,19 @@
                     <h:panelGrid columns="3" cellpadding="5">
                         <h:form id="login">
                             <p:outputLabel for="username" value="Username:" />
-                            <p:inputText id="username" value="#{loginPageBean.selectedUser.userName}" required="true" label="Username">
+                            <p:inputText id="username" value="#{login.username}" required="true" label="Username">
                                 <f:validateLength minimum="2" />
                                 <p:ajax update="msgUsername" event="keyup" />
                             </p:inputText>
                             <p:message for="username" id="msgUsername" display="icon" />
 
                             <p:outputLabel for="password" value="Password:" />
-                            <p:password id="password" value="#{loginPageBean.selectedUser.password}" label="Password" required="true">
+                            <p:password id="password" value="#{login.password}" label="Password" required="true">
                                 <f:validateLength minimum="2" />
                                 <p:ajax update="msgPassword" event="keyup" />
                             </p:password>
                             <p:message for="password" id="msgPassword" display="icon" />
-                            <p:commandButton value="Login" update="panel" action="#{loginPageBean.doLogin}" icon="ui-icon-check" />
+                            <p:commandButton value="Login" update="panel" action="#{login.doLogin}" icon="ui-icon-check" />
                         </h:form>  
                     </h:panelGrid>
 
