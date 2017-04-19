@@ -14,10 +14,15 @@ public class FakeDB {
         addUser(new User("John", "Doe"));
      }
      
-     public static User getUser(String username){
+     private static User getUser(String username){
         User user = users.get(username);
-        return user;   
+        return user;    
      }
+     
+     public static boolean isUserExists(User selectedUser){
+        User dbUser = FakeDB.getUser(selectedUser.getUsername());
+        return (dbUser != null);
+    }
      
      
      public static void addUser(User user){
