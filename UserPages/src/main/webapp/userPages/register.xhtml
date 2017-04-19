@@ -15,29 +15,37 @@
             </ui:define>
             <ui:define name="content">
                 <h:form>
-                    <p:messages id="msgs" showDetail="true" autoUpdate="true" />
+                    <p:panel id="panel" header="Registrera">
 
-                    <h:panelGrid columns="2" id="register" cellpadding="5">    
-                        <h:outputLabel for="username" value="Username: *"/>
-                        <p:inputText id="username" value="#{loginPageBean.selectedUser.userName}" required="true" label="Username" >
-                            <f:validateLength minimum="2" />
-                            <p:ajax update="msgUsername" event="keyup" />
-                        </p:inputText>
-                            
-                        <h:outputLabel for="pwd1" value="Password: *" />
-                        <p:password id="pwd1" value="#{register.password}" match="pwd2" label="Password 1" required="true" >
-                            <f:validateLength minimum="2" />
-                            <p:ajax update="msgPassword" event="keyup" />
-                        </p:password>
+                        <p:messages id="msgs" />
 
-                        <h:outputLabel for="pwd2" value="Password: *" />
-                        <p:password id="pwd2" value="#{register.password}" label="Password 2" required="true" >
-                            <f:validateLength minimum="2" />
-                            <p:ajax update="msgPassword" event="keyup" />
-                        </p:password>
-                    </h:panelGrid>
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel for="username" value="Username: "/>
+                            <p:inputText id="username" value="#{userView.username}" required="true" label="Username">
+                                <f:validateLength minimum="2" />
+                                <p:ajax update="msgUsername" event="keyup"/>
+                            </p:inputText>
+                            <p:message for="username" id="msgUsername" display="icon"/>
+                            <p:separator/>
+                            <p:outputLabel for="password1" value="Password: "/>
+                            <p:password id="password1" value="#{userView.password}" label="Password" required="true">
+                                <f:validateLength minimum="2" />
+                                <p:ajax update="msgPassword1" event="keyup"/>
+                            </p:password>
+                            <p:message for="password1" id="msgPassword1" display="icon" />
+                            <p:separator/>
+                            <p:outputLabel for="password2" value="Password: " />
+                            <p:password id="password2" value="#{userView.password}" label="Password" required="true">
+                                <f:validateLength minimum="2" />
+                                <p:ajax update="msgPassword2" event="keyup" />
+                            </p:password>
+                            <p:message for="password2" id="msgPassword2" display="icon" />
+                            <p:separator/>
+                            <p:commandButton value="Registrera" update="panel" actionListener="#{userView.register}" icon="ui-icon-check" />
 
-                    <p:commandButton update="register" value="Register" />
+                        </h:panelGrid>
+
+                    </p:panel>
                 </h:form>
             </ui:define>
         </ui:composition>
